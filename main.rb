@@ -3,7 +3,6 @@ require_relative 'wallet'
 require 'colorize'
 require 'pry'
 
-<<<<<<< HEAD
 
   def menu
     puts "Welcome to the super fun casino!"
@@ -25,7 +24,6 @@ require 'pry'
       exit
     end
     casino
-=======
 def menu
   puts "Welcome to the super fun casino!"
   puts "Tell us your name"
@@ -46,10 +44,8 @@ def menu
   else
     print `say "Sorry you are too poor to play, get out."`
     exit
->>>>>>> initial commit
   end
 
-<<<<<<< HEAD
   def casino
     puts "Which game do you want to play?"
     puts "\t1. Slots"
@@ -78,7 +74,6 @@ def menu
     puts "Invalid entry"
     casino
     end
-=======
 
 # def wallet
 #
@@ -112,7 +107,6 @@ when 6
 else
   puts "Invalid entry"
   casino
->>>>>>> initial commit
   end
 
 menu

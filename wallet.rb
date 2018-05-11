@@ -5,14 +5,12 @@ class Wallet
     @money = money
   end
 
-<<<<<<< HEAD
   # def money
   #   x = @money
   # end
 
   # def increase(x)
   #   @wallet = x + 5
-=======
   def self.money
     x = @money
   end
@@ -38,7 +36,6 @@ end
   #    y = gets.strip.to_i
   #    @money += y
   #   binding.pry
->>>>>>> initial commit
   # end
 
   # def decrease(x)
