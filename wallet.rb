@@ -5,9 +5,8 @@ class Wallet
     @money = money
   end
 
-  # def money
-  #   x = @money
-  # end
+
+
 
   # def increase(x)
   #   @wallet = x + 5

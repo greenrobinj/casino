@@ -4,6 +4,7 @@ require 'colorize'
 
 
 class Yahtzee
+  puts "Welcome to Yahtzee!"
 end
 
 

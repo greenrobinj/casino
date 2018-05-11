@@ -1,10 +1,20 @@
 
 require_relative 'wallet'
+# require_relative 'yahtzee'
 require 'colorize'
 require 'pry'
 
+class Menu
+  attr_accessor :wallet
 
-  def menu
+  def initialize 
+    @player = Wallet.new(500)
+    wallet = @player.money
+    # binding.pry
+    menu(wallet)
+  end
+  
+  def menu(wallet)
     puts "Welcome to the super fun casino!"
     puts "Tell us your name"
     name = gets.strip
@@ -44,9 +54,10 @@ def menu
   else
     print `say "Sorry you are too poor to play, get out."`
     exit
+    casino(wallet)
   end
 
-  def casino
+  def casino(wallet)
     puts "Which game do you want to play?"
     puts "\t1. Slots"
     puts "\t2. Baccarat"
@@ -66,13 +77,16 @@ def menu
   when 4
     Roulette.new
   when 5
-   #check wallet
+    #  binding.pry
+   puts "You have: $#{wallet}"
+   puts wallet
+   casino(wallet)
   when 6
     puts "Thanks for playing! Goodbye"
     exit
   else
     puts "Invalid entry"
-    casino
+    casino(wallet)
     end
 
 # def wallet
@@ -107,6 +121,9 @@ else
   puts "Invalid entry"
   casino
   end
+end
+
+Menu.new
 
 
 def add_money   
