@@ -99,8 +99,7 @@ when 3
 when 4
   Roulette.new
 when 5
-  binding.pry
-  Wallet.new
+  add_money
 when 6
   puts "Thanks for playing! Goodbye"
   exit
@@ -108,5 +107,22 @@ else
   puts "Invalid entry"
   casino
   end
+
+
+def add_money   
+  puts "How much would you like to add?"
+   y = gets.strip.to_i
+   puts "now you have "
+   puts @money += y 
+   puts "dallors to lose!"
+end
+
+
+
+
+
+
+
+
 
 menu

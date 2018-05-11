@@ -15,11 +15,14 @@ class Wallet
     x = @money
   end
 
+#   def self.money
+#     x = @money
+#   end
 
-  def self.increase
-    @money = x + 5
-  end
 
+#   def self.increase
+#     @money = x + 5
+#   end
 
   def self.decrease
     @money = x - 5
