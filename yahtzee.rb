@@ -1,10 +1,28 @@
 # require_relative 'dice'
+require_relative 'wallet'
 require 'pry'
 require 'colorize'
 
-
 class Yahtzee
-  puts "Welcome to Yahtzee!"
+attr_accessor :name, :age, :money
+  
+
+def initialize(person)
+  @person = person #then we can use the instance variable throughout the sheet
+end 
+
+
+  # puts @person.name
+  # puts @person.money - 1
+  
+end
+
+# def game(wallet)
+  
+#   puts "@person.money"
+#   puts "@person.age"
+# end
+
 end
 
 
