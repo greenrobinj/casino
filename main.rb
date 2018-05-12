@@ -16,9 +16,14 @@ class Menu
     name = gets.strip
     puts "Enter your age"
     age = gets.strip.to_i
+    if age >= 21
+    else
+      puts "You are too young. Try in a few years."
+      exit
+    end
     money = 500
-    # binding.pry
     @person = Wallet.new(name, age, money)
+    # binding.pry
     puts "Welcome #{@person.name}, you have $#{@person.money}"
     casino
   end
@@ -35,13 +40,13 @@ class Menu
     selection = gets.strip.to_i
     case selection
     when 1
-      Slots.new
+      Slots.new(person)
     when 2
       Baccarat.new(person)
     when 3
       Yahtzee.new(person)
     when 4
-      Roulette.new
+      Roulette.new(person)
     when 5
     puts "You have: $#{@person.money}"
     when 6
