@@ -23,7 +23,6 @@ class Menu
     end
     money = 500
     @person = Wallet.new(name, age, money)
-    # binding.pry
     puts "Welcome #{@person.name}, you have $#{@person.money}"
     casino
   end
