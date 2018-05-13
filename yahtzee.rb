@@ -5,13 +5,49 @@ require 'colorize'
 
 class Yahtzee
 attr_accessor :name, :age, :money
-attr_accessor :roll, :singleroll
+attr_accessor :roll, :singleroll, :show_dice
 
   def initialize(person)
     @person = person
     @total_log = []
     game
+  end
+
+  def ones
+    val = @current_log_mod.reject{|d| d != 1}.inject(0) {|sum, val| sum + val}
+    puts "Your ones are occupied by the value of #{val}"
+    game
   end 
+
+  def twos
+    val = @current_log_mod.reject{|d| d != 2}.inject(0) {|sum, val| sum + val}
+    puts "Your twos are occupied by the value of #{val}"
+    game
+  end
+
+  def threes
+    val = @current_log_mod.reject{|d| d != 3}.inject(0) {|sum, val| sum + val}
+    puts "Your threes are occupied by the value of #{val}"
+    game
+  end
+
+  def fours
+    val = @current_log_mod.reject{|d| d != 4}.inject(0) {|sum, val| sum + val}
+    puts "Your fours are occupied by the value of #{val}"
+    game
+  end
+
+  def fives
+    val = @current_log_mod.reject{|d| d != 5}.inject(0) {|sum, val| sum + val}
+    puts "Your fives are occupied by the value of #{val}"
+    game
+  end
+
+  def sixes
+    val = @current_log_mod.reject{|d| d != 6}.inject(0) {|sum, val| sum + val}
+    puts "Your sixes are occupied by the value of #{val}"
+    game
+  end
 
   def game
     print `clear`
@@ -19,24 +55,46 @@ attr_accessor :roll, :singleroll
     puts "Any other key will ESC"
     input = gets.strip.to_i
     if input == 1
-      @total_log = singleroll
-      current_roll = Dice.new(singleroll)
-      binding.pry
-      @total_log << current_roll
-      # binding.pry
+      current_roll = Dice.new()
+      # puts current_roll.show_dice this is not working with the numbers!
+      @total_log << current_roll.roll #this is the stand in
+      num = @total_log.length
+      @current_log_mod =  @total_log[num - 1]
+      print @current_log_mod
       select_dice
     else
-      exit
+      exit  
     end
   end
 
-# def to_i
-  #   @hand1.map {|i| i.to_s}.select {|s| s =~ /^[0-9]+$/}.map {|i| i.to_i}
-  #   puts @hand1
-  #   select_dice
-  # end
+  def select_dice
+    puts "What would you like to fill?"
+    selection = gets.strip.to_i
+    case selection 
+    when 1
+      ones
+    when 2
+      twos
+    when 3
+      threes
+    when 4
+      fours
+    when 5
+      fives
+    when 6
+      sixes
+    else
+      game
+    end
+  end
 
-  # def keep_score
+
+
+
+
+end
+
+    # def keep_score
   #   puts "Your score card is:"
   #   # puts "\t1) Ones: #{@one_sum}"
   #   #two  = sum
@@ -53,26 +111,4 @@ attr_accessor :roll, :singleroll
   #   #Small straight: 4 dice - 30 pts
   #   #large straight: 5 dice - 40 pts
   #   #yahtzee (bonus yahtzee) - 100 pts
-# end
-
-  def select_dice
-    puts "What would you like to fill?"
-    selection = gets.strip.to_i
-    case selection 
-    when 1
-      ones
-    else
-      game
-    end
-  end
-
-  def ones
-    #i need to define @one_sum
-    #if the value == 1, then sum if not, then ignore
-    binding.pry
-    @total_log.each do |num|
-      (num == 1 ? num + 1 : false )
-    end
-  end
-end
-
+  #end
