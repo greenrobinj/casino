@@ -1,19 +1,17 @@
-require_relative 'yahtzee'
-
-class Score
-
-  attr_accessor :player_score, :score
-
-  def initialize
-    @player_score = player_score
-    @player_score = []
+class Playeroll
+  attr_accessor :num, :points
+  
+  def initialize (num, points)
+    @num = num
+    @points = points
   end
-
-#   end
-#  #maybe put the scores in a hash
-#   def score
-#     @player_score = []
-#   end
 end
 
-#player_score[:ones]
+class Score
+  attr_accessor :scorecard
+  
+  def initialize
+    @scorecard = []
+  end
+end
+

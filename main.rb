@@ -8,10 +8,6 @@ class Menu
   attr_accessor :person
 
   def initialize 
-    instructions
-  end
-  
-  def instructions
     puts "Welcome to the super fun casino!"
     puts "Enter your name"
     name = gets.strip
@@ -29,7 +25,6 @@ class Menu
   end
     
   def casino
-    # binding.pry
     puts "Which game do you want to play, #{@person.name}?"
     puts "\t1. Slots"
     puts "\t2. Baccarat"
@@ -40,13 +35,13 @@ class Menu
     selection = gets.strip.to_i
     case selection
     when 1
-      Slots.new(person)
+      Slots.new(@person)
     when 2
-      Baccarat.new(person)
+      Baccarat.new(@person)
     when 3
-      Yahtzee.new(person)
+      Yahtzee.new(@person)
     when 4
-      Roulette.new(person)
+      Roulette.new(@person)
     when 5
     puts "You have: $#{@person.money}"
     when 6
@@ -61,8 +56,3 @@ end
 
 Menu.new
 
-# def initialize 
-  # @player = Wallet.new(500)
-  # wallet = @player.money
-  # instructions(wallet)
-# end
