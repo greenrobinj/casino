@@ -1,7 +1,8 @@
 require_relative 'wallet'
-require_relative 'yahtzee'
+# require_relative 'yahtzee'
 require 'colorize'
 require 'pry'
+require_relative 'baccarat'
 
 class Menu
   attr_accessor :person
