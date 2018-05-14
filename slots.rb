@@ -16,11 +16,6 @@ end
 def welcome
     puts "Welcome to Super Fun Slots!".colorize(:cyan)
     puts "Try your luck!".colorize(:magenta)
-    puts "What would you like to bet? ".colorize(:magenta)
-    bet = gets.input.i
-    puts "You have bet $#{bet}"
-    casino(wallet)
-    wallet = wallet - bet
     pull
 end
 
