@@ -79,6 +79,6 @@ class Cards
     bet_on_tie
   when 4
     puts "Thanks for playing, bye!"
-    # Menu.new
+     Menu.new
   end
-  welcome_menu
+  # welcome_menu

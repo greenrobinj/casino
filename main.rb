@@ -10,10 +10,10 @@ class Menu
   attr_accessor :person
 
   def initialize 
-    #instructions
+    instructions
+  end
   
-  
-  #def instructions
+  def instructions
     puts "\t. -------SUPER FUN CASINO-------".colorize(:cyan)
     puts "Welcome to the super fun casino!".colorize(:magenta)
     puts "Enter your name".colorize(:magenta)
