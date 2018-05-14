@@ -11,12 +11,13 @@ class Yahtzee
   attr_accessor :score
   
   
-    def initialize(person) #put menu in here, but it wasn't working
+    def initialize(person, menu) #put menu in here, but it wasn't working
       @person = person
-      # @menu = menu
+      @menu = menu
       @score = Score.new
       @total_log = []
       @scorecard = []   #Score.new(num, points)
+      @total = 0
       game
     end
   
@@ -114,19 +115,40 @@ class Yahtzee
     def view_card
      puts "#{@person.name}, here is your card:"
         @score.scorecard.each do |item|
-          puts "Your #{item.num} = #{item.points}."
+          puts "Your #{item.num} = #{item.points}"
+          # binding.pry
+          @total += item.points
+          # binding.pry
         end
-        @score.scorecard do |item|
-          item.num += total
-          puts "total: #{total}"
-          binding.pry #Why is this not being reached? 
-        end
+        puts "Your running total: #{@total}"
+        # @score.scorecard.each do |item|
+        #   # binding.pry
+        #   tot_arr = []
+        #   tot_arr << item.points
+        #   # binding.pry
+        #   tot = tot_arr.sum 
+        #   puts "total: #{tot}"
+        #   binding.pry
+        # end
       game
     end
+
+    # def view_card
+    #   puts "#{@person.name}, here is your card:"
+    #      @score.scorecard.each do |item|
+    #        puts "Your #{item.num} = #{item.points}."
+    #      end
+    #      @score.scorecard do |item|
+    #        item.num += total
+    #        puts "total: #{total}"
+    #        binding.pry #Why is this not being reached? 
+    #      end
+    #    game
+    #  end
   
     def game
       puts "\n"
-      puts "Welcome to Yahtzee #{@person.name}"
+      puts "Welcome to Math Yahtzee #{@person.name}!!!!".colorize(:red)
       puts "Press 1 to roll".colorize(:yellow)
       puts "Press 2 to see your scorecard".colorize(:red)
       puts "Press 3 to go back to the casino"
@@ -144,6 +166,8 @@ class Yahtzee
         view_card
       elsif input == 3
         @menu.casino
+        # puts "Sorry, you must be bored. You should probably leave"
+        # exit
       else
         exit
       end

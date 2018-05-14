@@ -1,5 +1,5 @@
 require_relative 'wallet'
-# require_relative 'yahtzee'
+require_relative 'yahtzee'
 require 'colorize'
 require 'pry'
 require_relative 'baccarat'
@@ -40,7 +40,7 @@ class Menu
     when 2
       Baccarat.new(@person)
     when 3
-      Yahtzee.new(@person)
+      Yahtzee.new(@person, self) 
     when 4
       Roulette.new(@person)
     when 5
