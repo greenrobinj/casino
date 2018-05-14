@@ -3,6 +3,7 @@ require_relative 'wallet'
 require 'colorize'
 require 'pry'
 require_relative 'baccarat'
+require_relative 'slots'
 
 class Menu
   attr_accessor :person
