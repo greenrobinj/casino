@@ -1,5 +1,6 @@
 require_relative 'wallet'
 require_relative 'yahtzee'
+require_relative 'Roulette'
 require 'colorize'
 require 'pry'
 require_relative 'baccarat'
@@ -9,14 +10,19 @@ class Menu
   attr_accessor :person
 
   def initialize 
-    puts "Welcome to the super fun casino!"
-    puts "Enter your name"
+    #instructions
+  
+  
+  #def instructions
+    puts "\t. -------SUPER FUN CASINO-------".colorize(:cyan)
+    puts "Welcome to the super fun casino!".colorize(:magenta)
+    puts "Enter your name".colorize(:magenta)
     name = gets.strip
-    puts "Enter your age"
+    puts "Enter your age".colorize(:magenta)
     age = gets.strip.to_i
     if age >= 21
     else
-      puts "You are too young. Try in a few years."
+      puts "You are too young. Try in a few years.".colorize(:red)
       exit
     end
     money = 500
@@ -26,7 +32,8 @@ class Menu
   end
     
   def casino
-    puts "Which game do you want to play, #{@person.name}?"
+    # binding.pry
+    puts "Which game do you want to play, #{@person.name}?".colorize(:magenta)
     puts "\t1. Slots"
     puts "\t2. Baccarat"
     puts "\t3. Yahtzee"
@@ -45,11 +52,12 @@ class Menu
       Roulette.new(@person)
     when 5
     puts "You have: $#{@person.money}"
+    casino
     when 6
       puts "Thanks for playing! Goodbye"
       exit
     else
-      puts "Invalid entry"
+      puts "Invalid entry".colorize(:red)
       casino
     end
   end
